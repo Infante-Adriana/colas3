@@ -1,0 +1,130 @@
+package colas3;
+import java.util.Scanner;
+
+public class Colas3 {
+int Maximo=100;
+ int i=0;
+int a=10, aux;
+
+int num[]=new int[a];
+    
+
+    public void llenarcola(){
+         for(i=0;i<a;i++){
+            num[i] =(int) (Math.random() * Maximo);
+            for(int b=0; b<i;b++){
+            if(num[i]==num[b]){
+                           i--;
+            }
+            }
+         num[i] =(int) (Math.random() * Maximo);           
+                   for ( i=0; i< a; i++) {
+                num[i] =(int) (Math.random() * Maximo);
+                   for(int b=0; b<i;b++){
+                       if(num[i]==num[b]){
+                           i--;
+                       }
+                   }
+        
+                   
+               System.out.println((i+1)+ " .- "+num[i]);
+                   }   
+    }   
+    }
+    public void mostrarcola(){
+        if(Maximo>0){
+                    System.out.println("los datos son:");
+                    
+                    for(i = 0; i < a; i++){
+                    System.out.println("posicion de cola["+i+"]=" +num[i]);
+                    }
+                    }else{
+                        System.out.println("la cola esta vacia");
+                    }
+    }
+       
+    public void ordenarcola(){
+         for(int b=0;b<a;b++){
+                        for( i=0;i<a-1;i++){
+                            if(num[i]>num[i+1]){
+                             aux=num[i];
+                             num[i]=num[i+1];
+                             num[i+1]=aux;
+                              
+                            }
+                        }
+                        
+                    } 
+                    {
+                        System.out.println("datos ordenados ");
+                    }
+    }
+    
+    public void vaciarcola(){
+         
+    
+                    
+       
+         
+    for(int i=0; i<a; i++){
+       
+                       if(num[i]>num[i++]){
+                             aux=num[i];
+                             num[i]=num[i-1];
+                             num[i+1]=aux;
+                              
+                            }
+      
+    
+         
+                           i--;
+                    System.out.println((i+1)+" .- \n cola vacia");
+    }        
+                    
+    }
+    public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+       Colas3 cola= new Colas3();
+        int opcion;
+                
+        
+        
+        
+        do{
+          
+        
+        
+              System.out.println("1-llenar");
+              System.out.println("2-mostrar");
+              System.out.println("3-ordenar");
+              System.out.println("4-vaciar");
+            
+                System.out.print(" ¿que Opcion quieres? ");
+        opcion = leer.nextInt();
+        
+              
+        
+        switch (opcion){
+            
+            case 1:
+               cola.llenarcola();
+                break;               
+            case 2:
+              cola.mostrarcola();              
+                break;
+            case 3:
+                cola.ordenarcola();
+                break;
+                
+            case 4:
+                cola.vaciarcola();
+                break;
+                
+                
+        }
+      }
+      while (opcion!=5);  
+
+    }
+    
+}
